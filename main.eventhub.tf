@@ -2,7 +2,7 @@ resource "azurerm_eventhub" "this" {
   for_each = var.event_hubs
 
   message_retention   = each.value.message_retention
-  name                = each.key
+  name                = each.value.name
   partition_count     = each.value.partition_count
   namespace_name      = try(data.azurerm_eventhub_namespace.this[0].name, azurerm_eventhub_namespace.this[0].name)
   resource_group_name = var.resource_group_name
