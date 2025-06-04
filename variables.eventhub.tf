@@ -1,5 +1,6 @@
 variable "event_hubs" {
   type = map(object({
+    name = string
     namespace_name      = string
     resource_group_name = string
     partition_count     = number
